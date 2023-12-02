@@ -1,5 +1,5 @@
 {
-  "name": "@SimpleSolutionsInnovate/ssi",
+  "name": "@ssi-lib/ssi",
   "version": "0.0.1",
   "private": false,
   "dependencies": {
@@ -70,6 +70,6 @@
   ],
   "types": "dist/index.d.ts",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/SimpleSolutionsInnovate"
+    "registry": "https://npm.pkg.github.com/ssi-lib"
   }
 }
