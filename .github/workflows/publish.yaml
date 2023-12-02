@@ -1,0 +1,30 @@
+name: Publish Package on Pull Request to Master
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.x"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build package with Rollup
+        run: npm run rollup
+
+      - name: Publish package
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PUBLISH_TOKEN }}" > ~/.npmrc
+          npm publish
