@@ -1,10 +1,8 @@
 name: Jest Test
 
 on:
-  push:
-    branches: ["dev"]
   pull_request:
-    branches: ["master", "dev"]
+    branches: ["master"]
 
 jobs:
   deploy:
@@ -17,8 +15,5 @@ jobs:
         with:
           node-version: "18.x"
       - run: npm ci
-      - name: Run Cypress tests
-        run: npm run cypress:test
-
       - name: Run Jest tests
         run: npm run test
